@@ -9,7 +9,15 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-typescript",
     "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-plugin-google-fonts",
+      options: {
+        fonts: ["Raleway:300,400"],
+        display: "swap",
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
