@@ -18,7 +18,7 @@ const titulo = "Kunan Yoga";
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout pageTitle={titulo} color="white" logoBlanco={true}>
+    <Layout pageTitle={titulo}>
       <Helmet
         htmlAttributes={{
           style: `background-image: url(${hoja});`,
