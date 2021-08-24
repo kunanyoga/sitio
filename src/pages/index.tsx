@@ -6,7 +6,6 @@ import { IconName } from "@fortawesome/fontawesome-svg-core";
 import Layout from "../components/Layout";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import Helmet from "react-helmet";
-import hoja from "../images/hoja.jpg";
 import * as style from "./index.module.css";
 
 const redesSociales: { icon: IconName; url: string }[] = [
@@ -21,7 +20,6 @@ const IndexPage = ({ data }) => {
     <Layout pageTitle={titulo}>
       <Helmet
         htmlAttributes={{
-          style: `background-image: url(${hoja});`,
           class: style.bgImage,
         }}
       />
