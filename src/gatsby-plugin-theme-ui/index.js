@@ -27,6 +27,8 @@ const theme = {
   },
   buttons: {
     primary: {
+      borderRadius: 10,
+      cursor: "pointer",
       ":hover": {
         bg: darken("primary", 0.1),
       },

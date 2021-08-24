@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Container } from "@theme-ui/components";
 
 interface LayoutProps {
   pageTitle: string;
@@ -7,7 +8,18 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => (
   <div>
     <title>{pageTitle}</title>
-    <main>{children}</main>
+    <main>
+      <Container
+        mt="4"
+        sx={{
+          maxWidth: "500px",
+          textAlign: "center",
+          color: "white",
+        }}
+      >
+        {children}
+      </Container>
+    </main>
   </div>
 );
 
