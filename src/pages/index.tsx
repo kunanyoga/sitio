@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import "../components/FontAwesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
+import Layout from "../components/Layout";
 
 const enlaces = [
   { nombre: "Consejos para la práctica", icono: ["fas", "info-circle"] },
@@ -25,8 +26,7 @@ const titulo = "Kunan Yoga";
 
 const IndexPage = () => {
   return (
-    <main>
-      <title>{titulo}</title>
+    <Layout pageTitle={titulo}>
       <Container
         mt="4"
         sx={{
@@ -75,7 +75,7 @@ const IndexPage = () => {
           ))}
         </Flex>
       </Container>
-    </main>
+    </Layout>
   );
 };
 
