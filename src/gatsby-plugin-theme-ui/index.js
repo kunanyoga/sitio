@@ -7,6 +7,7 @@ const theme = {
     text: "#000",
     background: "#e6fdec",
     primary: "#509261",
+    white: "#fff",
   },
   fontWeights: {
     heading: "normal",

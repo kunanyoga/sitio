@@ -1,7 +1,9 @@
 import * as React from "react";
-import { Container, Button, Flex, Heading } from "@theme-ui/components";
+import { Container, Button, Flex, Heading, Link } from "@theme-ui/components";
 import { StaticImage } from "gatsby-plugin-image";
-import { Link } from "gatsby";
+import "../components/FontAwesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconName } from "@fortawesome/fontawesome-svg-core";
 
 const enlaces = [
   { nombre: "Consejos para la práctica", icono: ["fas", "info-circle"] },
@@ -12,6 +14,11 @@ const enlaces = [
     url: "/info/horarios",
     icono: ["far", "calendar-alt"],
   },
+];
+
+const redesSociales: { icon: IconName; url: string }[] = [
+  { icon: "instagram", url: "https://www.instagram.com/kunanyoga" },
+  { icon: "whatsapp", url: "https://wa.me/541168340304" },
 ];
 
 const titulo = "Kunan Yoga";
@@ -49,7 +56,24 @@ const IndexPage = () => {
             </Button>
           ))}
         </Flex>
-        {/* <RedesSociales /> */}
+        <Flex sx={{ justifyContent: "center" }}>
+          {redesSociales.map(it => (
+            <Link
+              href={it.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              mr="3"
+            >
+              <FontAwesomeIcon
+                icon={["fab", it.icon]}
+                title={it.icon}
+                color="white"
+                opacity={0.7}
+                size="2x"
+              />
+            </Link>
+          ))}
+        </Flex>
       </Container>
     </main>
   );
