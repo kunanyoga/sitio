@@ -53,7 +53,10 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allMdx(sort: { fields: frontmatter___position }) {
+    allMdx(
+      sort: { fields: frontmatter___position }
+      filter: { frontmatter: { partial: { ne: true } } }
+    ) {
       nodes {
         slug
         frontmatter {
