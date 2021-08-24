@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Button, Flex, Heading, Link } from "@theme-ui/components";
-import { StaticImage } from "gatsby-plugin-image";
 import "../components/FontAwesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
@@ -18,12 +17,6 @@ const IndexPage = ({ data }) => {
   console.log(data);
   return (
     <Layout pageTitle={titulo}>
-      <StaticImage
-        alt="Logo"
-        src="../images/logo.png"
-        width={100}
-        height={100}
-      />
       <Heading as="h1" sx={{ fontSize: "3rem" }}>
         {titulo}
       </Heading>
