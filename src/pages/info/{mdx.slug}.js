@@ -6,7 +6,9 @@ import { Heading } from "@theme-ui/components";
 
 const PaginaInfo = ({ data }) => (
   <Layout pageTitle={data.mdx.frontmatter.title}>
-    <Heading as="h2">{data.mdx.frontmatter.title}</Heading>
+    <Heading as="h2" sx={{ fontSize: "2rem" }}>
+      {data.mdx.frontmatter.title}
+    </Heading>
     <div style={{ textAlign: "justify" }}>
       <MDXRenderer>{data.mdx.body}</MDXRenderer>
     </div>

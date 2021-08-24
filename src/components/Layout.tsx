@@ -13,14 +13,14 @@ const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => (
       <Container
         mt="4"
         sx={{
-          maxWidth: "500px",
+          maxWidth: "700px",
+          width: "80%",
           textAlign: "center",
-          color: "white",
         }}
       >
         <StaticImage
           alt="Logo"
-          src="../images/logo.png"
+          src={"../images/logo.png"}
           width={100}
           height={100}
         />

@@ -5,6 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconName } from "@fortawesome/fontawesome-svg-core";
 import Layout from "../components/Layout";
 import { graphql, Link as GatsbyLink } from "gatsby";
+import Helmet from "react-helmet";
+import hoja from "../images/hoja.jpg";
+import * as style from "./index.module.css";
 
 const redesSociales: { icon: IconName; url: string }[] = [
   { icon: "instagram", url: "https://www.instagram.com/kunanyoga" },
@@ -15,14 +18,25 @@ const titulo = "Kunan Yoga";
 
 const IndexPage = ({ data }) => {
   return (
-    <Layout pageTitle={titulo}>
+    <Layout pageTitle={titulo} color="white" logoBlanco={true}>
+      <Helmet
+        htmlAttributes={{
+          style: `background-image: url(${hoja});`,
+          class: style.bgImage,
+        }}
+      />
       <Heading as="h1" sx={{ fontSize: "3rem" }}>
         {titulo}
       </Heading>
       <Flex my="4" sx={{ flexDirection: "column" }}>
         {data.allMdx.nodes.map(it => (
           <GatsbyLink key={it.slug} to={`/info/${it.slug}`}>
-            <Button variant="primary" py="3" mb="2" sx={{ width: "80%" }}>
+            <Button
+              variant="primary"
+              py="3"
+              mb="2"
+              sx={{ width: "100%", maxWidth: 500 }}
+            >
               {it.frontmatter.title}
             </Button>
           </GatsbyLink>

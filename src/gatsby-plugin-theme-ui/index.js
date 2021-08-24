@@ -1,11 +1,10 @@
 import { darken } from "@theme-ui/color";
-import hoja from "../images/hoja.jpg";
 
 /** @type {import('theme-ui').Theme} */
 const theme = {
   colors: {
-    text: "#000",
-    background: "#e6fdec",
+    text: "#fff",
+    background: "#324f3d",
     primary: "#509261",
     white: "#fff",
   },
@@ -21,8 +20,6 @@ const theme = {
       fontFamily: "body",
       color: "text",
       bg: "background",
-      backgroundImage: `url(${hoja})`,
-      backgroundSize: "cover",
     },
   },
   buttons: {
