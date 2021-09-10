@@ -4,7 +4,7 @@ import { darken } from "@theme-ui/color";
 const theme = {
   colors: {
     text: "#fff",
-    background: "#324f3d",
+    background: "#4a725b",
     primary: "#509261",
     white: "#fff",
   },
