@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "kunan-yoga",
+    siteUrl: "https://kunan.yoga",
+    title: "Kunan Yoga",
   },
   plugins: [
     "gatsby-plugin-theme-ui",

@@ -1,33 +1,53 @@
 import * as React from "react";
+import { useStaticQuery, graphql } from "gatsby";
 import { Container } from "@theme-ui/components";
 import { StaticImage } from "gatsby-plugin-image";
+import { Helmet } from "react-helmet";
 
 interface LayoutProps {
-  pageTitle: string;
+  pageTitle?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => (
-  <div>
-    <title>{pageTitle}</title>
-    <main>
-      <Container
-        mt="4"
-        sx={{
-          maxWidth: "700px",
-          width: "80%",
-          textAlign: "center",
-        }}
-      >
-        <StaticImage
-          alt="Logo"
-          src={"../images/logo.png"}
-          width={100}
-          height={100}
-        />
-        {children}
-      </Container>
-    </main>
-  </div>
-);
+const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
+  return (
+    <div>
+      <Helmet>
+        <title>
+          {pageTitle
+            ? `${pageTitle} | ${data.site.siteMetadata.title}`
+            : data.site.siteMetadata.title}
+        </title>
+      </Helmet>
+      <main>
+        <Container
+          mt="4"
+          sx={{
+            maxWidth: "700px",
+            width: "80%",
+            textAlign: "center",
+          }}
+        >
+          <StaticImage
+            alt="Logo"
+            src={"../images/logo.png"}
+            width={100}
+            height={100}
+          />
+          {children}
+        </Container>
+      </main>
+    </div>
+  );
+};
 
 export default Layout;
