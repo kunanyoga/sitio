@@ -2,15 +2,20 @@ import * as React from "react";
 import Layout from "../../components/Layout";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { Heading } from "@theme-ui/components";
+import Image from "gatsby-image";
 
-const PaginaInfo = ({ data }) => (
-  <Layout pageTitle={data.mdx.frontmatter.title}>
-    <Heading as="h2" sx={{ fontSize: "2rem" }}>
-      {data.mdx.frontmatter.title}
-    </Heading>
+const PaginaInfo = ({
+  data: {
+    mdx: { frontmatter, body },
+  },
+}) => (
+  <Layout pageTitle={frontmatter.title}>
+    <Image
+      fluid={frontmatter.featuredImage.childImageSharp.fluid}
+      style={{ margin: "20px 0" }}
+    />
     <div style={{ textAlign: "justify" }}>
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      <MDXRenderer>{body}</MDXRenderer>
     </div>
   </Layout>
 );
@@ -20,6 +25,13 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
+        featuredImage {
+          childImageSharp {
+            fluid(maxWidth: 800) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
       body
     }

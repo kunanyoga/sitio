@@ -11,6 +11,7 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-plugin-typescript",
     "gatsby-transformer-sharp",
+    "gatsby-transformer-remark",
     {
       resolve: "gatsby-plugin-google-fonts",
       options: {
