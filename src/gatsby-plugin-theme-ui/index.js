@@ -5,7 +5,8 @@ const theme = {
   colors: {
     text: "#565050",
     background: "#d7b5a4",
-    primary: "#509261",
+    primary: "#71293d",
+    accent: "#d7d7d7",
     white: "#fff",
   },
   fontWeights: {
