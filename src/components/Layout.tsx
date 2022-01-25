@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useStaticQuery, graphql } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import { Container } from "@theme-ui/components";
 import { StaticImage } from "gatsby-plugin-image";
 import { Helmet } from "react-helmet";
@@ -37,12 +37,14 @@ const Layout: React.FC<LayoutProps> = ({ pageTitle, children }) => {
             textAlign: "center",
           }}
         >
-          <StaticImage
-            alt="Logo"
-            src={"../images/logo.png"}
-            width={100}
-            height={100}
-          />
+          <Link to="/">
+            <StaticImage
+              alt="Logo"
+              src={"../images/logo.png"}
+              width={100}
+              height={100}
+            />
+          </Link>
           {children}
         </Container>
       </main>

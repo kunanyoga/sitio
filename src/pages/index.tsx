@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
           class: style.bgImage,
         }}
       />
-      <Heading as="h1" sx={{ fontSize: "3rem" }}>
+      <Heading as="h1" sx={{ fontSize: "3rem", color: "primary" }}>
         {titulo}
       </Heading>
       <Flex my="4" sx={{ flexDirection: "column" }}>
@@ -33,7 +33,7 @@ const IndexPage = ({ data }) => {
               variant="primary"
               py="3"
               mb="2"
-              sx={{ width: "100%", maxWidth: 500 }}
+              sx={{ width: "100%", maxWidth: 500, color: "accent" }}
             >
               {it.frontmatter.title}
             </Button>
@@ -48,11 +48,11 @@ const IndexPage = ({ data }) => {
             target="_blank"
             rel="noopener noreferrer"
             mr="3"
+            sx={{ color: "primary" }}
           >
             <FontAwesomeIcon
               icon={["fab", it.icon]}
               title={it.icon}
-              color="white"
               opacity={0.7}
               size="2x"
             />
