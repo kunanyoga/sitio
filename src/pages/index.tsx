@@ -10,7 +10,10 @@ import * as style from "./index.module.css";
 
 const redesSociales: { icon: IconName; url: string }[] = [
   { icon: "instagram", url: "https://www.instagram.com/kunanyoga" },
-  { icon: "whatsapp", url: "https://wa.me/541168340304" },
+  {
+    icon: "whatsapp",
+    url: "https://wa.me/541168340304?text=¡Hola!%0ATengo%20ganas%20de%20empezar%20yoga,%20¿me%20pasarías%20los%20horarios?",
+  },
 ];
 
 const titulo = "Kunan Yoga";
