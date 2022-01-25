@@ -2,7 +2,7 @@ import * as React from "react";
 import Layout from "../../components/Layout";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import Image from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const PaginaInfo = ({
   data: {
@@ -10,8 +10,8 @@ const PaginaInfo = ({
   },
 }) => (
   <Layout pageTitle={frontmatter.title}>
-    <Image
-      fluid={frontmatter.featuredImage.childImageSharp.fluid}
+    <GatsbyImage
+      image={frontmatter.featuredImage.childImageSharp.gatsbyImageData}
       style={{ margin: "20px 0" }}
     />
     <div style={{ textAlign: "justify" }}>
@@ -27,9 +27,7 @@ export const query = graphql`
         title
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 800) {
-              ...GatsbyImageSharpFluid
-            }
+            gatsbyImageData(width: 800, layout: CONSTRAINED)
           }
         }
       }
