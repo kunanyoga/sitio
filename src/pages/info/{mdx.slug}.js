@@ -5,10 +5,11 @@ import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { urlWhatsApp } from "../../components/WhatsApp";
 
-const ContactoWhatsApp = () => (
+const ContactoWhatsApp = ({ numero, mensaje }) => (
   <Link
-    href="https://wa.me/541168340304?text=¡Hola!%0ATengo%20ganas%20de%20empezar%20yoga,%20¿me%20pasarías%20los%20horarios?"
+    href={urlWhatsApp(numero, mensaje)}
     target="_blank"
     rel="noopener noreferrer"
     mr="3"
@@ -38,6 +39,11 @@ const ContactoWhatsApp = () => (
 const PaginaInfo = ({
   data: {
     mdx: { frontmatter, body },
+    site: {
+      siteMetadata: {
+        whatsApp: { numero, mensaje },
+      },
+    },
   },
 }) => (
   <Layout pageTitle={frontmatter.title}>
@@ -48,12 +54,20 @@ const PaginaInfo = ({
     <div style={{ textAlign: "justify", paddingBottom: "80px" }}>
       <MDXRenderer>{body}</MDXRenderer>
     </div>
-    <ContactoWhatsApp />
+    <ContactoWhatsApp numero={numero} mensaje={mensaje} />
   </Layout>
 );
 
 export const query = graphql`
   query ($id: String) {
+    site {
+      siteMetadata {
+        whatsApp {
+          numero
+          mensaje
+        }
+      }
+    }
     mdx(id: { eq: $id }) {
       frontmatter {
         title

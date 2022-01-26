@@ -7,18 +7,31 @@ import Layout from "../components/Layout";
 import { graphql, Link as GatsbyLink } from "gatsby";
 import Helmet from "react-helmet";
 import * as style from "./index.module.css";
+import { urlWhatsApp } from "../components/WhatsApp";
 
-const redesSociales: { icon: IconName; url: string }[] = [
-  { icon: "instagram", url: "https://www.instagram.com/kunanyoga" },
-  {
-    icon: "whatsapp",
-    url: "https://wa.me/541168340304?text=¡Hola!%0ATengo%20ganas%20de%20empezar%20yoga,%20¿me%20pasarías%20los%20horarios?",
-  },
-];
+function redesSociales(
+  numeroWhatsApp: string,
+  mensajeWhatsApp: string
+): { icon: IconName; url: string }[] {
+  return [
+    { icon: "instagram", url: "https://www.instagram.com/kunanyoga" },
+    {
+      icon: "whatsapp",
+      url: urlWhatsApp(numeroWhatsApp, mensajeWhatsApp),
+    },
+  ];
+}
 
 const titulo = "Kunan Yoga";
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({
+  data: {
+    site: {
+      siteMetadata: { whatsApp },
+    },
+    allMdx,
+  },
+}) => {
   return (
     <Layout>
       <Helmet
@@ -30,7 +43,7 @@ const IndexPage = ({ data }) => {
         {titulo}
       </Heading>
       <Flex my="4" sx={{ flexDirection: "column" }}>
-        {data.allMdx.nodes.map(it => (
+        {allMdx.nodes.map(it => (
           <GatsbyLink key={it.slug} to={`/info/${it.slug}`}>
             <Button
               variant="primary"
@@ -44,7 +57,7 @@ const IndexPage = ({ data }) => {
         ))}
       </Flex>
       <Flex sx={{ justifyContent: "center" }}>
-        {redesSociales.map(it => (
+        {redesSociales(whatsApp.numero, whatsApp.mensaje).map(it => (
           <Link
             key={it.icon}
             href={it.url}
@@ -68,6 +81,14 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
+    site {
+      siteMetadata {
+        whatsApp {
+          numero
+          mensaje
+        }
+      }
+    }
     allMdx(
       sort: { fields: frontmatter___position }
       filter: { frontmatter: { partial: { ne: true } } }

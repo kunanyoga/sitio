@@ -2,6 +2,11 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://kunan.yoga",
     title: "Kunan Yoga",
+    whatsApp: {
+      numero: "541168340304",
+      mensaje:
+        "¡Hola!\nTengo ganas de empezar yoga, ¿me pasarías los horarios?",
+    },
   },
   plugins: [
     "gatsby-plugin-theme-ui",
