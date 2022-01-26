@@ -6,6 +6,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { urlWhatsApp } from "../../components/WhatsApp";
+import SEO from "../../components/SEO";
 
 const ContactoWhatsApp = ({ numero, mensaje }) => (
   <Link
@@ -38,7 +39,7 @@ const ContactoWhatsApp = ({ numero, mensaje }) => (
 
 const PaginaInfo = ({
   data: {
-    mdx: { frontmatter, body },
+    mdx: { excerpt, frontmatter, body },
     site: {
       siteMetadata: {
         whatsApp: { numero, mensaje },
@@ -46,16 +47,26 @@ const PaginaInfo = ({
     },
   },
 }) => (
-  <Layout pageTitle={frontmatter.title}>
-    <GatsbyImage
-      image={frontmatter.featuredImage.childImageSharp.gatsbyImageData}
-      style={{ margin: "20px 0" }}
+  <>
+    <SEO
+      title={`Kunan Yoga | ${frontmatter.title}`}
+      description={excerpt}
+      imageUrl={
+        frontmatter.featuredImage.childImageSharp.gatsbyImageData.images
+          .fallback.src
+      }
     />
-    <div style={{ textAlign: "justify", paddingBottom: "80px" }}>
-      <MDXRenderer>{body}</MDXRenderer>
-    </div>
-    <ContactoWhatsApp numero={numero} mensaje={mensaje} />
-  </Layout>
+    <Layout pageTitle={frontmatter.title}>
+      <GatsbyImage
+        image={frontmatter.featuredImage.childImageSharp.gatsbyImageData}
+        style={{ margin: "20px 0" }}
+      />
+      <div style={{ textAlign: "justify", paddingBottom: "80px" }}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </div>
+      <ContactoWhatsApp numero={numero} mensaje={mensaje} />
+    </Layout>
+  </>
 );
 
 export const query = graphql`
@@ -69,6 +80,7 @@ export const query = graphql`
       }
     }
     mdx(id: { eq: $id }) {
+      excerpt
       frontmatter {
         title
         featuredImage {
