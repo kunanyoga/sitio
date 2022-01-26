@@ -3,7 +3,7 @@ import Layout from "../../components/Layout";
 import "../../components/FontAwesome";
 import { graphql, Link } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getSrc } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { urlWhatsApp } from "../../components/WhatsApp";
 import SEO from "../../components/SEO";
@@ -51,10 +51,7 @@ const PaginaInfo = ({
     <SEO
       title={`Kunan Yoga | ${frontmatter.title}`}
       description={excerpt}
-      imageUrl={
-        frontmatter.featuredImage.childImageSharp.gatsbyImageData.images
-          .fallback.src
-      }
+      imageUrl={getSrc(frontmatter.featuredImage)}
     />
     <Layout pageTitle={frontmatter.title}>
       <GatsbyImage

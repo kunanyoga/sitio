@@ -2,6 +2,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://kunan.yoga",
     title: "Kunan Yoga",
+    description: "Yoga integral y consciente. Clases virtuales y presenciales.",
     whatsApp: {
       numero: "541168340304",
       mensaje:
