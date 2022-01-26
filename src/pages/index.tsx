@@ -9,7 +9,7 @@ import Helmet from "react-helmet";
 import * as style from "./index.module.css";
 import { urlWhatsApp } from "../components/WhatsApp";
 import SEO from "../components/SEO";
-import flor from "../images/flor.jpg";
+import flor from "../images/flor-og.jpg";
 
 function redesSociales(
   numeroWhatsApp: string,
