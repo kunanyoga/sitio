@@ -19,6 +19,14 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-transformer-remark",
     {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          placeholder: `blurred`,
+        },
+      },
+    },
+    {
       resolve: "gatsby-plugin-google-fonts",
       options: {
         fonts: ["Raleway:300,400"],
