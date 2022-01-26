@@ -1,18 +1,18 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import { useStaticQuery } from "gatsby";
-import { graphql } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 
-const SEO = ({ title, description, imagePath, path = "" }) => {
+export default function SEO({ title, description, imagePath, path = "" }) {
   const {
     site: {
-      siteMetadata: { siteUrl, title: siteTitle },
+      siteMetadata: { title: siteTitle, siteUrl },
     },
   } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
           title
+          siteUrl
         }
       }
     }
@@ -33,6 +33,4 @@ const SEO = ({ title, description, imagePath, path = "" }) => {
       <meta property="og:image" content={siteUrl + imagePath}></meta>
     </Helmet>
   );
-};
-
-export default SEO;
+}
