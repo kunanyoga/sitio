@@ -43,7 +43,7 @@ const IndexPage = ({
             class: style.bgImage,
           }}
         />
-        <Heading as="h1" sx={{ fontSize: "3rem", color: "primary" }}>
+        <Heading as="h1" sx={{ fontSize: "3rem", color: "secondary" }}>
           {titulo}
         </Heading>
         <Flex my="4" sx={{ flexDirection: "column" }}>
@@ -68,12 +68,11 @@ const IndexPage = ({
               target="_blank"
               rel="noopener noreferrer"
               mr="3"
-              sx={{ color: "primary" }}
+              sx={{ color: "secondary" }}
             >
               <FontAwesomeIcon
                 icon={["fab", it.icon]}
                 title={it.icon}
-                opacity={0.7}
                 size="2x"
               />
             </Link>

@@ -6,6 +6,7 @@ const theme = {
     text: "#565050",
     background: "#d7b5a4",
     primary: "#71293d",
+    secondary: "#632536",
     accent: "#d7d7d7",
     white: "#fff",
   },
