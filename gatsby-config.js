@@ -48,5 +48,17 @@ module.exports = {
       },
       __key: "pages",
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Kunan Yoga`,
+        short_name: `Kunan Yoga`,
+        start_url: `/`,
+        background_color: `#d7b5a4`,
+        theme_color: `#71293d`,
+        display: `standalone`,
+        icon: "src/images/icon.png",
+      },
+    },
   ],
 };
