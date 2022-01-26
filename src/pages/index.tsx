@@ -36,7 +36,7 @@ const IndexPage = ({
 }) => {
   return (
     <>
-      <SEO title={title} description={description} imageUrl={flor} />
+      <SEO title={title} description={description} imagePath={flor} />
       <Layout>
         <Helmet
           htmlAttributes={{

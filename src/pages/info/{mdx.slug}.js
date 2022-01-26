@@ -51,7 +51,7 @@ const PaginaInfo = ({
     <SEO
       title={`Kunan Yoga | ${frontmatter.title}`}
       description={excerpt}
-      imageUrl={getSrc(frontmatter.featuredImage)}
+      imagePath={getSrc(frontmatter.featuredImage)}
       path={slug}
     />
     <Layout pageTitle={frontmatter.title}>
