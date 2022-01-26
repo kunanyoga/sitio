@@ -39,7 +39,7 @@ const ContactoWhatsApp = ({ numero, mensaje }) => (
 
 const PaginaInfo = ({
   data: {
-    mdx: { excerpt, frontmatter, body },
+    mdx: { excerpt, slug, frontmatter, body },
     site: {
       siteMetadata: {
         whatsApp: { numero, mensaje },
@@ -52,6 +52,7 @@ const PaginaInfo = ({
       title={`Kunan Yoga | ${frontmatter.title}`}
       description={excerpt}
       imageUrl={getSrc(frontmatter.featuredImage)}
+      path={slug}
     />
     <Layout pageTitle={frontmatter.title}>
       <GatsbyImage
@@ -78,6 +79,7 @@ export const query = graphql`
     }
     mdx(id: { eq: $id }) {
       excerpt
+      slug
       frontmatter {
         title
         featuredImage {
