@@ -21,6 +21,10 @@ const SEO = ({
   `);
   return (
     <Helmet>
+      <meta name="twitter:card" content="summary_large_image"></meta>
+      <meta name="twitter:title" content={title}></meta>
+      <meta name="twitter:description" content={description}></meta>
+      <meta name="twitter:image" content={imageUrl}></meta>
       <meta property="og:locale" content="es_AR" />
       <meta property="og:site_name" content={data.site.siteMetadata.title} />
       <meta property="og:title" content={title}></meta>
